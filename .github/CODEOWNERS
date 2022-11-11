@@ -1,0 +1,4 @@
+* @olehlavryk
+*.js @olehlavryk
+*.yml @olehlavryk
+/public/ @olehlavryk
