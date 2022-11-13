@@ -1,5 +1,4 @@
 name: CI
-
 on:
   pull_request:
     branches: [develop]
@@ -11,53 +10,41 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Cache a node_modules
+      - name: Cache node-modules
         uses: actions/cache@v1
         with:
           path: ~/.npm
-          key: ${{runner.os}}-node-${{hashFiles('**/package-lock.json')}}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{runner.os}}-node
-
+            ${{ runner.os }}-node-
       - name: Use NodeJS
         uses: actions/setup-node@v1
         with:
-          node-version: "16.x"
-
-      - run: npm ci
-
+          node-version: "12.x"
+      - run: npm CI
       - run: npm run format:check
-
-      - run: npm run test -- --coverage
+      - run: npm test -- --coverage
         env:
           CI: true
-
-      - name: Upload test coverage
+      - name: Upload Test Coverage
         uses: actions/upload-artifact@v1
         with:
           name: code-coverage
           path: coverage
-
-      - name: Build the project
-        if: github.event_name == 'push'
-        run: npm run build
-
-      - name: Upload build folder
-        if: github.event_name == 'push'
+      - name: Build Projects
+      - if: github.event_name == 'push'
+      - run: npm run build
+      - name: Upload Build Folder
+      - if: github.event_name == 'push'
         uses: actions/upload-artifact@v1
         with:
           name: build
           path: build
+      - uses: actions/download-artifact
 
-      - uses: actions/download-artifact@v3
-        with:
-          name: code-coverage
-          path: coverage
-
-      - name: Deploy to staging
+      - name: Deploy to Staging
         if: github.event_name == 'push'
-        run: npx surge --project ./build --domain frail-chess.surge.sh
+        run: npx surge --project ./build --domain silent-apparatus.surge.sh
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
