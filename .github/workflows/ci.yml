@@ -49,10 +49,10 @@ jobs:
         with:
           name: build
           path: build
-
+      - name: Download code-coverage
       - uses: actions/download-artifact@v3
         with:
-          name: code-artifact
+          name: code-coverage
 
       - name: Deploy to staging
         if: github.event_name == 'push'
