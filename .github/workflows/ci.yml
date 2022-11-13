@@ -43,13 +43,17 @@ jobs:
         if: github.event_name == 'push'
         run: npm run build
 
-      - name: Upload Build Folder
-      - if: github.event_name == 'push'
+      - name: Upload build folder
+        if: github.event_name == 'push'
         uses: actions/upload-artifact@v1
         with:
           name: build
           path: build
-      - uses: actions/download-artifact
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: code-coverage
+          path: coverage
 
       - name: Deploy to staging
         if: github.event_name == 'push'
