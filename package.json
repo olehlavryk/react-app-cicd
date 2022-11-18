@@ -38,8 +38,14 @@
     ]
   },
   "devDependencies": {
+    "git-cz": "^4.9.0",
     "prettier": "2.7.1",
     "semantic-release": "^19.0.5",
     "surge": "^0.23.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/git-cz"
+    }
   }
 }
