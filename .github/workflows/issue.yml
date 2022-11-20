@@ -17,4 +17,4 @@ jobs:
           SLACK_ICON: https://github.com/rtCamp.png?size=48
           SLACK_MESSAGE: "New issue created: <${{ github.event.issue.html_url }}|${{ github.event.issue.title }}.>"
           SLACK_TITLE: New issue created
-          SLACK_USERNAME: slackBot
+          SLACK_USERNAME: Slack Bot
