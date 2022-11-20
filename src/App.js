@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Test
         </a>
         <h1>React.js</h1>
         <p>React the best library</p>
