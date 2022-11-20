@@ -17,7 +17,8 @@ function App() {
         >
           Learn React
         </a>
-        <span>1</span>
+        <h1>React.js</h1>
+        <p>Learn react the best library</p>
       </header>
     </div>
   );
