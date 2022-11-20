@@ -18,7 +18,11 @@ function App() {
           Learn React
         </a>
         <h1>React.js</h1>
+<<<<<<< HEAD
         <p>React the best library!</p>
+=======
+        <p>React the best library</p>
+>>>>>>> ce3799cbe922c8b06757c6dba1992a76bf121996
       </header>
     </div>
   );
