@@ -19,7 +19,6 @@ function App() {
         </a>
         <h1>React.js</h1>
         <p>React the best library</p>
-        <span>1</span>
       </header>
     </div>
   );
