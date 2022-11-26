@@ -6487,7 +6487,7 @@ module.exports = /******/ (function (modules, runtime) {
       const core = __webpack_require__(470);
       const github = __webpack_require__(469);
 
-      const run = async () => {
+      async function run() {
         try {
           const token = core.getInput("token");
           const title = core.getInput("title");
@@ -6496,9 +6496,10 @@ module.exports = /******/ (function (modules, runtime) {
 
           const octokit = new github.GitHub(token);
 
-          const response = await octokit.rest.issues.create({
-            owner: github.context.repo.owner,
-            repo: github.context.repo.repo,
+          const response = await octokit.issues.create({
+            // owner: github.context.repo.owner,
+            // repo: github.context.repo.repo,
+            ...github.context.repo,
             title,
             body,
             assignees: assignees ? assignees.split("\n") : undefined,
@@ -6508,7 +6509,7 @@ module.exports = /******/ (function (modules, runtime) {
         } catch (error) {
           core.setFailed(error.message);
         }
-      };
+      }
 
       run();
 
