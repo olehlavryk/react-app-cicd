@@ -1,0 +1,14 @@
+name: Hello World
+author: Oleh Lavryk
+description: Creating simple action
+inputs:
+  who-to-greed:
+    description: "Who to greed"
+    required: true
+    default: Oleh Lavryk
+outputs:
+  time:
+    description: "The greed time"
+runs:
+  using: "node12"
+  main: "dist/index.js"
