@@ -19,18 +19,14 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format:check": "npx prettier --check \"**/*.{js,ts,jsx,json,css,scss,html,yml,yaml}\"",
-    "format": "npx prettier --write \"**/*.{js,ts,jsx,json,css,scss,html,yml,yaml}\""
+    "format": "npx prettier --write \"**/*.{js,ts,jsx,json,css,scss,html,yml,yaml}\"",
+    "lint": "eslint -c .eslintrc --ext .js,.jsx, .",
+    "lint:fix": "npm run lint -- --fix"
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -47,6 +43,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^17.2.0",
+    "@octokit/rest": "^19.0.5",
     "@zeit/ncc": "^0.22.3",
     "git-cz": "^4.9.0",
     "husky": "^8.0.2",
